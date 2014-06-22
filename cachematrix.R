@@ -1,6 +1,6 @@
 ## This R program caches the inverse of a matrix
 
-## Write a short comment describing this function
+## makeCacheMatrix makes a object for the cache of the inverse matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   invMat <- NULL          ## Sets the default value of the inverse matrix to NULL
@@ -32,7 +32,7 @@ cacheSolve <- function(x, ...) {
     print("Using Inverse stored in Cache")
     return(invMat)           ## if the cache of the inverse is already present then return it
   }
-  inMatrix <- get()          ## inMatrix is the original input matrix
+  inMatrix <- get()          ## inMatrix fetches the original input matrix
   invMat <- solve(inMatrix)  ## Calculate the inverse of the input matrix
   invMat                     ## Return the Inverse of the Matrix
 }
