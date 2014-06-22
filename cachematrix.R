@@ -5,11 +5,13 @@
 makeCacheMatrix <- function(x = matrix()) {
   invMat <- NULL          ## Sets the default value of the inverse matrix to NULL
   
-  ## set function sets the value of the matrix which is to be inversed
+  ## set function sets the value of the (input)matrix which is to be inversed
   set <- funvtion(y){
     x <<- y
     invMat <- NULL          ## defaults the value of the inverse of the matirx to NULL  
   }
+  
+  ## get function fetches the (input) matrix which is to be inversed
   get <- function(){x}
   
   ## seMatInv sets the value of the inverse of the matrix
@@ -32,7 +34,7 @@ cacheSolve <- function(x, ...) {
     print("Using Inverse stored in Cache")
     return(invMat)           ## if the cache of the inverse is already present then return it
   }
-  inMatrix <- get()          ## inMatrix fetches the original input matrix
+  inMatrix <- get()          ## inMatrix object contains the input matrix
   invMat <- solve(inMatrix)  ## Calculate the inverse of the input matrix
   invMat                     ## Return the Inverse of the Matrix
 }
