@@ -1,15 +1,25 @@
 ## This R program caches the inverse of a matrix
-## functions do
 
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
   invMat <- NULL          ## Sets the default value of the inverse matrix to NULL
+  
+  ## set function sets the value of the matrix which is to be inversed
   set <- funvtion(y){
-    invMat <- solve(y)
-    
+    x <<- y
+    invMat <- NULL          ## defaults the value of the inverse of the matirx to NULL  
+  }
+  get <- function(){x}
+  
+  ## seMatInv sets the value of the inverse of the matrix
+  setMatInv <- function(x){
+    invMat <- solve(x)
+    invMat
   }
   
+  ## getMatInv fetches the value of the matrix inverse
+  getMatInv(){invMat}
 }
 
 
@@ -17,9 +27,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+  invMat <- getMatInv()
   if(!is.null(invMat)){
     print("Using Inverse stored in Cache")
-    return(invMat)        ## if the cache of the inverse is already present then return it
+    return(invMat)           ## if the cache of the inverse is already present then return it
   }
-  
+  inMatrix <- get()          ## inMatrix is the original input matrix
+  invMat <- solve(inMatrix)  ## Calculate the inverse of the input matrix
+  invMat                     ## Return the Inverse of the Matrix
 }
